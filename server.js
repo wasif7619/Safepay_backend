@@ -97,7 +97,9 @@ app.post("/api/safepay/session", async (req, res) => {
     }
 
     const token = orderData.data.token;
-    const checkoutUrl = `${checkoutHost()}/checkout/${token}`;
+    const checkoutUrl = `https://sandbox.web.safepay.pk/checkout/${token}`;
+    console.log(`✅ Safepay session created. Checkout URL: ${checkoutUrl}`);
+
 
     // Save initial payment row with pending status — card info comes from webhook
     const insertQuery = `
